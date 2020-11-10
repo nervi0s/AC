@@ -15,9 +15,18 @@ public class LecturaSecuencialBufferedReader {
 
 		try {
 			BufferedReader buffReader = new BufferedReader(new FileReader(file));
-			String msg = buffReader.readLine();
-			System.out.println(msg);
+			String msg = "";
+			String line = buffReader.readLine();
+
+			while (line != null) {
+				msg += line;
+				msg += "\n"; // Añade un salto de línea cuando este es detectado
+				line = buffReader.readLine();
+			}
+
 			buffReader.close();
+
+			System.out.println(msg);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
