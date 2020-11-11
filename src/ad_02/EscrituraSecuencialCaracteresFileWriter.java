@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class EscrituraSecuencialFichero {
+public class EscrituraSecuencialCaracteresFileWriter {
 
 	public static void main(String[] args) {
 
-		File file = new File("Escritura.txt");
+		File file = new File("./EscrituraFileWriter.txt");
 
 		try {
 			FileWriter writer = new FileWriter(file);

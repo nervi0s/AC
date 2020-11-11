@@ -1,26 +1,28 @@
 package ad_01;
 
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 
-public class LecturaSecuancialFichero {
+public class LecturaSecuencialCaracteresFileReader {
 
 	public static void main(String[] args) {
-		File file = new File("El Quijote - Cap 1.txt");
-		FileInputStream input;
+		File file = new File("./resources/QuijoteANSI.txt");
+		FileReader reader;
+
 		int letterELowerCaseCounter = 0;
 		int letterACounter = 0;
 		int quijoteCounter = 0;
 		String word = "";
+		String content = "";
+
 		try {
-			input = new FileInputStream(file);
-			InputStreamReader reader = new InputStreamReader(input, "UTF-8");
+			reader = new FileReader(file);
 			int i;
 			while ((i = reader.read()) != -1) {
+
+				content += (char) i;
 
 				if (((char) (i) == 'e')) {
 					letterELowerCaseCounter++;
@@ -28,7 +30,7 @@ public class LecturaSecuancialFichero {
 				if (((char) (i) == 'a') || (char) (i) == 'A') {
 					letterACounter++;
 				}
-				
+
 				// Una forma de hacerlo:
 				if ((char) (i) != ' ') {
 					word += (char) (i);
@@ -38,21 +40,22 @@ public class LecturaSecuancialFichero {
 				} else {
 					word = "";
 				}
-				
-				/*// Otra forma de hacerlo:
-				word += (char) (i);
+
+				// Otra forma de hacerlo:
+				/*word += (char) (i);
 				if (word.toLowerCase().contains("quijote")) {
-					word = "";
 					quijoteCounter++;
+					word = "";
 				}*/
+
 			}
 			reader.close();
+			System.out.println(content);
+			System.out.println();
 			System.out.println("Letra 'e': " + letterELowerCaseCounter);
 			System.out.println("Letra 'a' y 'A': " + letterACounter);
 			System.out.println("Palabra Quijote: " + quijoteCounter);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
