@@ -9,7 +9,7 @@ public class EscrituraSecuencialCaracteresBufferedWriter {
 
 	public static void main(String[] args) {
 
-		File file = new File("./EscrituraBufferedWriter.txt");
+		File file = new File("./resources/writed/EscrituraBufferedWriter.txt");
 
 		try {
 			BufferedWriter buffWriter = new BufferedWriter(new FileWriter(file));

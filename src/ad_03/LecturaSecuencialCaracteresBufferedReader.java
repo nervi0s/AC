@@ -10,7 +10,7 @@ public class LecturaSecuencialCaracteresBufferedReader {
 
 	public static void main(String[] args) {
 
-		File file = new File("./resources/QuijoteANSI.txt");
+		File file = new File("./resources/readed/QuijoteANSI.txt");
 
 		try {
 			BufferedReader buffReader = new BufferedReader(new FileReader(file));

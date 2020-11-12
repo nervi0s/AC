@@ -1,4 +1,4 @@
-package ad_tarea_por_organizar;
+package ad_09;
 
 import java.io.File;
 import java.io.FileReader;
@@ -17,11 +17,12 @@ public class Principal {
 
 		System.out.println("Indique el número de usuarios a introducir:");
 		int totalData = sc.nextInt();
-		sc.close();
 
-		CustomWriter cw = new CustomWriter("./listaNombres.txt", totalData);
+		CustomWriter cw = new CustomWriter("./exercices/ad_09/listaNombres.txt", totalData);
 		cw.writeInFile();
 		readFile(cw.getFile());
+
+		sc.close(); // Si se cierra en la línea 20 falla
 
 	}
 

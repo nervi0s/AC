@@ -29,7 +29,7 @@ public class LecturaSecuencialBytesFileInputStream {
 
 	public static void main(String[] args) {
 
-		File file = new File("./resources/bytesFiles/Logo_Google.png");
+		File file = new File("./resources/readed/bytesFiles/Logo_Google.png");
 
 		try {
 			FileInputStream fis = new FileInputStream(file);
@@ -49,7 +49,7 @@ public class LecturaSecuencialBytesFileInputStream {
 			e.printStackTrace();
 		}
 
-		WriteBytesInDecimalFormat(file, "./resources/bytesInDecimal.txt");
+		WriteBytesInDecimalFormat(file, "./resources/bytesInDecimal1.txt");
 	}
 
 	// Método de prueba
@@ -57,7 +57,7 @@ public class LecturaSecuencialBytesFileInputStream {
 		File file = new File(pathDestiny);
 
 		try {
-			FileWriter writer = new FileWriter(file, true);
+			FileWriter writer = new FileWriter(file);
 			FileInputStream fis = new FileInputStream(toExtract);
 			byte[] bytes = fis.readAllBytes();
 

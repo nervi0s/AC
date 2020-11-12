@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class EscrituraSecuencialBytesFileOutputSteam {
 
 	public static void main(String[] args) {
-		File file = new File("./EscrituraFileOutputStream.exe");
-		byte[] bytes = getBytesFromStr("./resources/bytesInDecimal.txt");
+		File file = new File("./resources/writed/EscrituraFileOutputStream");
+		byte[] bytes = getBytesFromStr("./resources/bytesInDecimal1.txt");
 
 		try {
 			FileOutputStream fos = new FileOutputStream(file);

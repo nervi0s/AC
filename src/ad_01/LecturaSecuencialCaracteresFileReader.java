@@ -8,7 +8,7 @@ import java.io.IOException;
 public class LecturaSecuencialCaracteresFileReader {
 
 	public static void main(String[] args) {
-		File file = new File("./resources/QuijoteANSI.txt");
+		File file = new File("./resources/readed/QuijoteANSI.txt");
 		FileReader reader;
 
 		int letterELowerCaseCounter = 0;

@@ -8,7 +8,7 @@ public class EscrituraSecuencialCaracteresFileWriter {
 
 	public static void main(String[] args) {
 
-		File file = new File("./EscrituraFileWriter.txt");
+		File file = new File("./resources/writed/EscrituraFileWriter.txt");
 
 		try {
 			FileWriter writer = new FileWriter(file);
