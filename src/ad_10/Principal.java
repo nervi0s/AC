@@ -39,7 +39,7 @@ public class Principal {
 
 				// Otra forma de hacerlo
 				for (int j = 0; j < nombreCompleto.length(); j++) {
-					bos.write(Integer.valueOf(nombreCompleto.charAt(j)));
+					bos.write(nombreCompleto.charAt(j));
 				}
 
 			}
