@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+@SuppressWarnings("serial") // Para evitar un warning (se puede omitir esta línea)
 public class Fichero extends File {
 
 	// Constructor, make a file in specific path
