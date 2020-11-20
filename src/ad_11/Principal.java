@@ -4,13 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		// String[] data = { "12345678L", "UserName", "Surname", "123456789",
-		// "mail@mail.com" };
+		// String[] data = { "12345678L", "UserName", "Surname Surn", "123456789", "mail@mail.com" };
 
 		File file = new File("./exercices/ad_11/registros");
 
@@ -26,9 +26,8 @@ public class Principal {
 
 			fm.writeInFile(record.getData());
 		}
-
 		sc.close();
-		
+
 		fm.readRecord(1);
 	}
 
@@ -57,7 +56,7 @@ class Record {
 
 	public String[] getData() {
 		String surnames = surname1 + " " + surname2;
-		return formatData(dni, name, surnames, email, phoneNumber).split(",");
+		return formatData(dni, name, surnames, phoneNumber, email).split(",");
 	}
 
 	private String formatData(String... inputData) { // Return the fields separated by commas
@@ -104,14 +103,14 @@ class FileManager {
 					raf.write(surnames.getBytes());
 					break;
 				case 3:
-					String phoneNumber = data[i];
+					String email = data[i];
 					raf.seek(raf.getFilePointer() + (50 - data[i - 1].length()));
-					raf.write(phoneNumber.getBytes());
+					raf.write(email.getBytes());
 					break;
 				case 4:
-					String email = data[i];
+					String phoneNumber = data[i];
 					raf.seek(raf.getFilePointer() + (9 - data[i - 1].length()));
-					raf.write(email.getBytes());
+					raf.write(phoneNumber.getBytes());
 					break;
 				case 5:
 					raf.seek(raf.getFilePointer() + (50 - data[i - 1].length() - 1));
@@ -133,20 +132,20 @@ class FileManager {
 		if (!recordExis(record)) {
 			System.out.println("El número de registro no existe.");
 		} else {
-			int recordIndex = 138 * record - 1;
-			byte[] recordLength = new byte[138];
+			int recordIndex = 138 * (record - 1);
+			byte[] recordArr = new byte[138];
 			try {
 				RandomAccessFile raf = new RandomAccessFile(file, "r");
-				System.out.println(raf.read(recordLength));
-				System.out.println((char)raf.read(recordLength));
-				
+				raf.seek(recordIndex);
+				raf.read(recordArr);
+				formatedRecord(recordArr);
+				raf.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
-			
+
 		}
 	}
 
@@ -160,6 +159,31 @@ class FileManager {
 		}
 
 		return false;
+	}
+
+	private void formatedRecord(byte[] arr) {
+		System.out.println(Arrays.toString(arr));
+		String msg = "";
+		boolean match = false;
+
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] != 0) {
+				msg += (char) arr[i];
+				match = false;
+				if (i == 8) {
+					msg += " ";
+				} else if (i == 87) {
+					msg += " ";
+				}
+			} else {
+				if (!match) {
+					msg += " ";
+				}
+				match = true;
+			}
+
+		}
+		System.out.println(msg);
 	}
 
 }
