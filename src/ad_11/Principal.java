@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
-		// String[] data = { "12345678L", "UserName", "Surname", "123456789", "mail@mail.com" };
+		// String[] data = { "12345678L", "UserName", "Surname", "123456789",
+		// "mail@mail.com" };
 
 		File file = new File("./exercices/ad_11/registros");
 
@@ -27,6 +28,8 @@ public class Principal {
 		}
 
 		sc.close();
+		
+		fm.readRecord(1);
 	}
 
 }
@@ -124,6 +127,39 @@ class FileManager {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void readRecord(int record) {
+		if (!recordExis(record)) {
+			System.out.println("El número de registro no existe.");
+		} else {
+			int recordIndex = 138 * record - 1;
+			byte[] recordLength = new byte[138];
+			try {
+				RandomAccessFile raf = new RandomAccessFile(file, "r");
+				System.out.println(raf.read(recordLength));
+				System.out.println((char)raf.read(recordLength));
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
+		}
+	}
+
+	private boolean recordExis(int record) {
+		int recordLenght = 138;
+		long fileLenght = file.length();
+		long totalRecord = fileLenght / recordLenght;
+
+		if (record <= totalRecord) {
+			return true;
+		}
+
+		return false;
 	}
 
 }
