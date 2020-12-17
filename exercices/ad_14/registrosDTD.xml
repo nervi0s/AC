@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personas [
+	<!ELEMENT personas (persona+)>
+	<!ELEMENT persona (dni, nombre, apellidos, telefono, email)>
+	<!ATTLIST persona id NMTOKEN #REQUIRED>
+	<!ELEMENT dni (#PCDATA)>
+	<!ELEMENT nombre (#PCDATA)>
+	<!ELEMENT apellidos (#PCDATA)>
+	<!ELEMENT telefono (#PCDATA)>
+	<!ELEMENT email (#PCDATA)>
+]>
+
+<personas>
+	<persona id="1">
+		<dni>99887766A</dni>
+		<nombre>Batman</nombre>
+		<apellidos>Olito Gafotas</apellidos>
+		<telefono>987654321</telefono>
+		<email>batman@wayne.com</email>
+	</persona>
+	<persona id="2">
+		<dni>11223344L</dni>
+		<nombre>Superman</nombre>
+		<apellidos>Olito Gafotas</apellidos>
+		<telefono>987654123</telefono>
+		<email>superman@dailyplanet.com</email>
+	</persona>
+</personas>
