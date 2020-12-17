@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE usuarios[
+	<!ELEMENT usuarios (usuario+)>
+	<!ELEMENT usuario (nombre,apellidos,telefono,email)>
+	<!ELEMENT nombre (#PCDATA)>
+	<!ELEMENT apellidos (#PCDATA)>
+	<!ELEMENT telefono (#PCDATA)>
+	<!ELEMENT email (#PCDATA)>
+]>
+<usuarios>
+	<usuario>
+		<nombre>Pedro</nombre>
+		<apellidos>Pica Piedra</apellidos>
+		<telefono>123456789</telefono>
+		<email>mail1@mail.es</email>
+	</usuario>
+	<usuario>
+		<nombre>Mario</nombre>
+		<apellidos>Bros Nintendo</apellidos>
+		<telefono>987654321</telefono>
+		<email>mail2@mail.es</email>
+	</usuario>
+	<usuario>
+		<nombre>Pikachu</nombre>
+		<apellidos>Amarillo Rojo</apellidos>
+		<telefono>547896321</telefono>
+		<email>mail3@mail.es</email>
+	</usuario>
+</usuarios>
