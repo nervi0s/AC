@@ -10,24 +10,28 @@ import java.util.List;
 
 public class Principal {
 
-	
-	
 	public static void main(String[] args) {
 		List<String[]> allRegisters = new ArrayList<String[]>();
-		
+
 		File file = new File("./exercices/ad_13/registros.xml");
 		String line;
 
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-
+			String register = "";
 			while ((line = br.readLine()) != null) {
-				System.out.println(getData(line));
-				
-				if (getData(line)!=null) {
-				
+				// System.out.println(getData(line));
+
+				if (getData(line) != null) {
+					register += getData(line) + ",";
+				} else {
+					if (register != "") {
+						allRegisters.add(register.split(","));
+					}
+					register = "";
 				}
 			}
-
+			// System.out.println(allRegisters);
+			showRegisters(allRegisters);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -45,5 +49,17 @@ public class Principal {
 			}
 		}
 		return null;
+	}
+
+	public static void showRegisters(List<String[]> allRegisters) {
+		String[] data = { "-DNI:", "-NOMBRE:", "-APELLIDOS:", "-TELÉFONO:", "-EMAIL:" };
+		int counter = 0;
+
+		for (String[] strings : allRegisters) {
+			System.out.println("Registro " + ++counter + ":");
+			for (int i = 0; i < strings.length; i++) {
+				System.out.println("\t" + data[i] + " " + strings[i]);
+			}
+		}
 	}
 }
