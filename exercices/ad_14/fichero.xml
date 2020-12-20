@@ -25,4 +25,11 @@
 		<telefono>987654123</telefono>
 		<email>superman@dailyplanet.com</email>
 	</persona>
+  <persona id="3">
+		<dni>11223344L</dni>
+		<nombre>Superdddman</nombre>
+		<apellidos>Olito Gafotas</apellidos>
+		<telefono>987654123</telefono>
+		<email>superman@dailyplanet.com</email>
+	</persona>
 </personas>
