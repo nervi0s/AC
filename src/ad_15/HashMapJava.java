@@ -38,7 +38,7 @@ public class HashMapJava {
 			do {
 				HashMap<String, Object> mapa = new HashMap<String, Object>();
 				if (isFirstReg) {
-					for (int i = 0; i < keys.length; i++) { // Itera la longitud del array veces para nombrar las calves
+					for (int i = 0; i < keys.length; i++) { // Itera la longitud del array veces para nombrar las claves
 															// y crear el primer registro del mapa para añadirlo al
 															// arrayList
 						keys[i] = JOptionPane.showInputDialog(
