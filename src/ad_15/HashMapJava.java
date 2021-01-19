@@ -12,7 +12,7 @@ public class HashMapJava {
 
 		String[] keys = null; // Se almacenarán los nombres de las claves
 		List<HashMap<String, Object>> listaRegistros = new ArrayList<HashMap<String, Object>>();
-		int totalKeys = -1; // Se lamacenará el número total de pares de valores
+		int totalKeys = -1; // Se almacenará el número total de pares de valores
 
 		// Pedimos la cantidad de pares de datos que vamos a introducir
 
