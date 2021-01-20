@@ -63,7 +63,7 @@ public class HashMapJava {
 					repeat = JOptionPane.showInputDialog("Valor incorrecto.\n¿Desea introducir otro registro? (S/N)");
 				}
 			} while (repeat.equalsIgnoreCase("S"));
-			// Imprimos el arrayList con los registros
+			// Imprimo el arrayList con los registros
 			System.out.println(listaRegistros);
 		}
 	}
