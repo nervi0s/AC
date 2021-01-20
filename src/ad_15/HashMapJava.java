@@ -58,6 +58,10 @@ public class HashMapJava {
 
 				listaRegistros.add(mapa); // Añadimos cada registro (mapa) a una posición del arrayList
 				repeat = JOptionPane.showInputDialog("¿Desea introducir otro registro? (S/N)");
+				while (!repeat.equalsIgnoreCase("S") && !repeat.equalsIgnoreCase("N")) { // En caso de que introducir un
+																							// valor que no sea S ni N
+					repeat = JOptionPane.showInputDialog("Valor incorrecto.\n¿Desea introducir otro registro? (S/N)");
+				}
 			} while (repeat.equalsIgnoreCase("S"));
 			// Imprimos el arrayList con los registros
 			System.out.println(listaRegistros);
